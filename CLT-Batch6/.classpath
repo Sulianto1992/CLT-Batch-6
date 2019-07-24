@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="CLT-Batch6/ATM"/>
 	<classpathentry kind="src" path="CLT-Batch6/ATMTest"/>
 	<classpathentry kind="src" path="CLT-Batch6/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="CLT-Batch6/bin"/>
 </classpath>
