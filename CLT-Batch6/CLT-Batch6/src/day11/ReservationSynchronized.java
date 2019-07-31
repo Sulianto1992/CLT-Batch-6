@@ -8,7 +8,7 @@ class TicketCounter{
     
 synchronized void bookTicket(String personName,int wantedTickets)
  {
-	System.out.println("Available tickets :" + availableTickets);
+	System.out.println("Available tickets : " + availableTickets);
 	
     if((availableTickets>=wantedTickets) && (wantedTickets > 0))
     {
@@ -26,20 +26,20 @@ class TicketBookingThread extends Thread{
 	//Declare variables
     TicketCounter tc;
     String name;
-    int seats;
+    int ticket;
     
     //Constructor
-    TicketBookingThread(TicketCounter t,String pname,int pseats)
+    TicketBookingThread(TicketCounter t,String pname,int personTicket)
     {
         tc = t;
         name = pname;
-        seats = pseats;
+        ticket = personTicket;
         start(); //Begin the execution of the thread
     }
 
     public void run()
     {
-        tc.bookTicket(name, seats);
+        tc.bookTicket(name, ticket);
     }
 }
 
@@ -54,17 +54,17 @@ public class ReservationSynchronized  {
     System.out.println("Welcome to the Ticket Reservation System");
     System.out.println("Please indicate the number of tickets for the following people\n");
     
-    System.out.print("How many tickets does Sulianto wants?");
+    System.out.print("How many tickets does Sulianto want?");
     Scanner sc = new Scanner(System.in);
     ticketForSulianto = sc.nextInt();
     System.out.println("");
     
-    System.out.print("How many tickets does Razli wants?");
+    System.out.print("How many tickets does Razli want?");
     sc = new Scanner(System.in);
     ticketForRazli = sc.nextInt();
     System.out.println("");
     
-    System.out.print("How many tickets does Karthik wants?");
+    System.out.print("How many tickets does Karthik want?");
     sc = new Scanner(System.in);
     ticketForKarthik = sc.nextInt();
     System.out.println("");
