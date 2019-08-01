@@ -18,7 +18,6 @@ public class Writer1 {
 			System.out.println(newFile); //already there?      //true      false
 			System.out.println(f.exists()); // look again */   //true      false
 			
-			
 			fw = new FileWriter("abcxyz.doc");
 			BufferedWriter br = new BufferedWriter(fw);
 			

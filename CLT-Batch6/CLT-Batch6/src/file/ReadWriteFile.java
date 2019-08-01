@@ -1,15 +1,19 @@
-package file;
+package file; //Name of the package
 
-import java.io.*;
-import java.util.Scanner;
+import java.io.*; //Input output operation
+import java.util.Scanner; //Read the user input
 
 
 public class ReadWriteFile {
 
 	public static void main(String[] args) throws IOException {
 		
+		//Variable Declaration
 		FileWriter fw = null;
-		BufferedReader bufferedReader =  null;
+		FileReader frRef = null;
+		DataInputStream in = null;
+		BufferedReader br =  null;
+		BufferedWriter bw = null;
 		int count = 0;
 		String line;
 		
@@ -26,7 +30,7 @@ public class ReadWriteFile {
 		boolean exists = f.exists();
 		System.out.println(exists);
 		
-		//Determine whether the file exists in the project folder
+		//Display output result whether the file exists in the project folder
 		if (exists == false)
 		{
 			System.out.println(fileName + " does not exist.");
@@ -36,78 +40,44 @@ public class ReadWriteFile {
 		else
 		{
 			System.out.println(fileName + " exists.");
-		}
+		} //end if
 		
 		//Prompt the user to enter words
 		System.out.println("Enter Text to the File: ");
 		sc = new Scanner(System.in);
 		String text = sc.nextLine();
 		System.out.println("");
-	
-		/*
-		try (FileWriter writer = new FileWriter(fileName)) {
-			writer.write(text);
-			
-		    bufferedReader = new BufferedReader(new FileReader(fileName));
 		
-		while ((line = bufferedReader.readLine()) != null) 
+		
+		try  
 		{
-		    count++;   
-		    String[] words = line.split(" ");
-		    count = count + words.length;
-		    System.out.println(count);
-        }
-		System.out.println("Number of words is : " + count);
-		} catch (IOException e) 
+			//Write text to the file
+			bw = new BufferedWriter(new FileWriter(fileName));
+			bw.write(text); 
+			bw.close();
+             
+			//Read the content of the file
+			br = new BufferedReader(new FileReader(fileName));
+		    
+			//Read the content line by line
+		    while ((line = br.readLine()) != null) 
+		    {
+			    count++;   
+			    String[] words = line.split(" ");
+			    count = count + (words.length - 1);
+            } //end while
+        
+		System.out.println("Number of words is : " + count); //Display the number of words in the text file
+		} 
+		catch (IOException e) 
 		{
 			e.printStackTrace();
-		} finally {
-			
-	    try 
-	    {
-            if(null != bufferedReader) 
-            {
-                bufferedReader.close();
-            }
-        } 
-        catch (IOException e)
-	    {
-            e.printStackTrace();
-        }
-	}
-		*/
-		
-		//Write the content to the file
-		try (FileWriter writer = new FileWriter(fileName)) {
-			writer.write(text);
-			
-			//Open the file
-			FileInputStream fs = new FileInputStream(f);
-			
-			//Create array of byte 
-			byte[] bytesArray = new byte[(int)f.length()];
-			fs.read(bytesArray);
-			//Create new object of String
-			String s = new String(bytesArray);
-			String [] data = s.split(" ");
-			
-			//Increment to the total number of words
-			for (int i = 0; i < data.length; i++)
-			{	
-				count++;	
-			}
-			
-			//Display the number of words
-			System.out.println("Number of words :" + count);
-		}
-		catch (Exception e)
+		} 
+		finally 
 		{
-			//Display the message 
-			System.out.println("No text entered.");
-		}
-		
-		
+			//Close the input stream
+	        in.close();
+		} // end try catch
+	} //end main
+} //end ReadWriteFile class
 
-	}
-
-}
