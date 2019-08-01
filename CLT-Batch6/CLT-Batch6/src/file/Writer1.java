@@ -34,6 +34,7 @@ public class Writer1 {
 			br.newLine();
 			br.write(".NET");
 			br.newLine();
+			br.close();
 			
 		} catch (IOException e) {
 			System.out.println("Sorry!! File Not Found...");

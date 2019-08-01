@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class ReadWriteFile {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 		
 		FileWriter fw = null;
 		int count = 0;
@@ -47,7 +47,7 @@ public class ReadWriteFile {
 		try (FileWriter writer = new FileWriter(fileName)) {
 			writer.write(text);
 		}
-		catch (IOException e)
+		catch (Exception e)
 		{
 			//Display the message 
 			System.out.println("No text entered.");
@@ -73,8 +73,6 @@ public class ReadWriteFile {
 		//Display the number of words
 		System.out.println("Number of words :" + count);
 		
-		//Close the file
-		fw.close();
 
 	}
 
