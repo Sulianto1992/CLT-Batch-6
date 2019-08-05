@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import connection.DBConnection;
+import connection.DBConnection2;
 import model.Person;
 
 public class PersonDAOImpl implements PersonDAO {
@@ -14,14 +15,18 @@ public class PersonDAOImpl implements PersonDAO {
 	
 	void getConnection() 
 	{
+		conn = DBConnection2.myConnection();
+		/*
 		try 
 		{
-			conn = DBConnection.prepareConnection();
+			
+			//conn = DBConnection.prepareConnection();
 		} 
 		catch (ClassNotFoundException | SQLException e) 
 		{
 			System.out.println("DB Connection Error");
 		}
+		*/
 	}
 	
 	public void addPerson(Person ref)
