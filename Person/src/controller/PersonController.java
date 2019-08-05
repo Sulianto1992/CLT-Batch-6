@@ -11,6 +11,10 @@ public class PersonController {
 	PersonService refPersonService; // PersonService is an interface
 	Person refPerson; // Person is a POJO
 	Scanner sc = new Scanner(System.in);
+	private void sysout() {
+		// TODO Auto-generated method stub
+
+	}
 	
 	public void personDetailsController()
 	{
@@ -21,7 +25,6 @@ public class PersonController {
     void personInput() 
 	{
     	System.out.println("Please enter the employee details: ");
-    	System.out.println();
     	System.out.println();
     	System.out.println();
     	
