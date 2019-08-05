@@ -23,6 +23,7 @@ public class PersonController {
     	System.out.println("Please enter the employee details: ");
     	System.out.println();
     	System.out.println();
+    	System.out.println();
     	
     	//Prompt user for his or her identification number
     	System.out.println("Please enter the user identification number: ");
