@@ -1,34 +1,28 @@
-package controller;
+package controller; //Name of the package
 
-import java.util.InputMismatchException;
-import java.util.List;
 import java.util.Scanner;
 import model.Person;
 import service.PersonService;
 import service.PersonServiceImpl;
 
-public class PersonController {
+public class PersonController //Name of the class
+{
 	
+	//Variable declaration
 	PersonService refPersonService; // PersonService is an interface
 	Person refPerson; // Person is a POJO
 	Scanner sc = new Scanner(System.in);
 	int choice;
 	
+	//Display main page 
 	public void personDetailsController()
 	{
 		mainPage();
-		/*
-		personInput();
-		updatePersonDetails();
-		retrievePersonList();
-		getPersonDetails();
-		removePersonDetails();
-		*/
 	}//end personDetailsController method
 
+	//Functions of the application
 	void mainPage()
 	{
-
 		do
 		{
 		
@@ -57,7 +51,7 @@ public class PersonController {
             	
             } //end while
 	       
-	        
+	        //Execute a particular statement according to his or her choice
 	        switch (choice)
 	        {
 	        	case 1: personInput();
@@ -72,18 +66,16 @@ public class PersonController {
 	        	        break;
 	        } //end switch
 
-		} while (choice != 6);
+		} while (choice != 6); //Terminate the program if the user choose 6
 		
+	 //Display valid message
 	 System.out.println("Thank you for using our system!");
 
 	} //end mainPage
 
+	//Prompt for user input
 	void personInput() 
 	{
-    	System.out.println("Please enter the employee details: ");
-    	System.out.println();
-    	System.out.println();
-    	
     	//Prompt user for his or her identification number
     	System.out.println("Please enter the user identification number: ");
     	int personID = sc.nextInt();
@@ -115,6 +107,7 @@ public class PersonController {
     	
 	} //end personInput
 
+	//Prompt user input to update his or her particulars
     void updatePersonDetails()
     {
     	
@@ -141,8 +134,9 @@ public class PersonController {
     	//Create object of PersonServiceImpl class and refer to it interface
     	refPersonService = new PersonServiceImpl(); 
 		refPersonService.updatePersonDetails(refPerson);
-    }
+    } //end updatePersonDetails
     
+    //Retrieve the list from the application
     void retrievePersonList() 
     {
     	//Create object of Person class
@@ -154,6 +148,7 @@ public class PersonController {
 		
 	} //end retrievePersonList
     
+    //Prompt user input to get the details of a particular person
     void getPersonDetails()
     {
     	//Create object of Person class
@@ -171,6 +166,7 @@ public class PersonController {
 		
     } //end getPersonDetails
     
+    //Prompt user input to remove details of a particular person from the list
     void removePersonDetails() 
     {
     	//Create object of Person class

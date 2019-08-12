@@ -9,5 +9,4 @@ public interface PersonService //Name of the interface
 	void retrievePersonList(Person ref);
 	void getPersonById(Person ref);
 	void removePerson(Person ref);
-
 } //end PersonService Interface

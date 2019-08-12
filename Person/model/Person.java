@@ -1,7 +1,6 @@
 package model; //Name of the package
 
-
-public class Person 
+public class Person //Name of the class
 {
 
 	//Data members and variables
@@ -51,5 +50,4 @@ public class Person
 		this.dateOfBirth = userDateOfBirth;
 	}
 	
-
 } //end Person

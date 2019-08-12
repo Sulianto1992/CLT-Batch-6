@@ -1,11 +1,12 @@
-package connection;
+package connection; //Name of the package
 
+//Use to connect to the database
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DBConnection {
-
+public class DBConnection //Name of the class
+{
 	public static Connection prepareConnection() throws SQLException, ClassNotFoundException
 	{
 		//database URL
@@ -22,6 +23,5 @@ public class DBConnection {
 		//Open a connection
 		Connection ref = DriverManager.getConnection(connectionURL,uname,pwd);
 		return ref;
-
-	}
-}
+	} //end prepareConnection
+} //end DBConnection

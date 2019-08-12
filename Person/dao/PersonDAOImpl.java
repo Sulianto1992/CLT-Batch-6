@@ -1,17 +1,16 @@
-package dao;
+package dao; //Name of the package
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-
 import connection.DBConnection;
 import model.Person;
 
-public class PersonDAOImpl implements PersonDAO {
-		
+public class PersonDAOImpl implements PersonDAO //Name of the class
+{
+	//Variable Declaration
 	Connection conn;
 	PreparedStatement stmt;
 	
@@ -25,11 +24,12 @@ public class PersonDAOImpl implements PersonDAO {
 		catch (ClassNotFoundException | SQLException e) 
 		{
 			System.out.println("DB Connection Error");
-		}
+		} //end try catch 
 		
-	}
+	} //end getConnection
 	
-	public void addPerson(Person ref)
+	//Add person function
+	public void addPerson(Person ref) //Name of the method
 	{
 		try
 		{
@@ -37,7 +37,6 @@ public class PersonDAOImpl implements PersonDAO {
 			
 			String sql = "INSERT INTO employees (personID,name,password,dateOfBirth)" + "VALUES (?,?,?,?)";
 			stmt = conn.prepareStatement(sql);
-			
 			
 		    stmt.setInt(1, ref.getPersonID());
 		    stmt.setString(2, ref.getPersonName());
@@ -71,10 +70,11 @@ public class PersonDAOImpl implements PersonDAO {
 			catch (SQLException e)
 			{
 				System.out.println("Caught exception");
-			}
-		}
-	}
+			} //end try catch
+		} //end finally
+	} //end addPerson 
 	
+	//Function to update person details
 	public void updatePerson(Person ref)
 	{
 		try
@@ -116,10 +116,11 @@ public class PersonDAOImpl implements PersonDAO {
 			catch (SQLException e)
 			{
 				System.out.println("Caught exception");
-			}
-		}
-	}
+			} //end try catch
+		} //end finally
+	} //end updatePerson
 	
+	//Function to display the entire list
 	public List<Person> listPersons(Person ref)
 	{
 		try
@@ -164,12 +165,14 @@ public class PersonDAOImpl implements PersonDAO {
 			{
 				System.out.println("Caught Exception");
 			}
-			
-			List<Person> listPersons = null;
-			return listPersons;
-		}
+		} //end finally
+		
+		List<Person> listPersons = null;
+		return listPersons;
+		
 	}//end listPersons
 	
+	//Function to retrieve a person particular's details
 	public void getPersonById(Person ref)
 	{
 		getConnection();
@@ -192,7 +195,6 @@ public class PersonDAOImpl implements PersonDAO {
 					"\t" + rs.getString(4));
 				} //end while
 			} //end if 
-			
 		}
 		catch (SQLException e)
 		{
@@ -217,10 +219,11 @@ public class PersonDAOImpl implements PersonDAO {
 			catch (SQLException e)
 			{
 				System.out.println("Caught Exception");
-			}
-	 } 
+			} //end catch
+	 } //end finally
 	} //end getPersonById
 	
+	//Function to remove person from the list
 	public void removePerson(Person ref)
 	{
 		getConnection();
@@ -257,7 +260,7 @@ public class PersonDAOImpl implements PersonDAO {
 			catch (SQLException e)
 			{
 				System.out.println("Caught Exception");
-			}
-	 } 
-	}
+			} //end try catch
+		} //end finally 
+	} //end removePerson
 } //end PersonDAOImpl
