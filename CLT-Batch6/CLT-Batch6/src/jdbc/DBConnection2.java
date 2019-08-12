@@ -1,4 +1,4 @@
-package connection; //Name of the package
+package jdbc; //Name of the package
 
 import java.io.FileReader;
 import java.io.IOException;

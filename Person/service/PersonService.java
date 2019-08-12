@@ -1,11 +1,13 @@
-package service;
+package service; //Name of the package
 
 import model.Person;
 
-public interface PersonService {
-
+public interface PersonService //Name of the interface
+{
 	void addPersonDetails(Person ref);
 	void updatePersonDetails(Person ref);
-	//public List<Person> listPersons();
+	void retrievePersonList(Person ref);
+	void getPersonById(Person ref);
+	void removePerson(Person ref);
 
-}
+} //end PersonService Interface

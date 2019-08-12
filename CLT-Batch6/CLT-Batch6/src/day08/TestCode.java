@@ -2,7 +2,6 @@ package day08;
 
 import java.io.IOException;
 import java.util.InputMismatchException;
-
 import org.junit.Test;
 
 public class TestCode {

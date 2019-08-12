@@ -1,17 +1,13 @@
-package dao;
+package dao; //Name of the package
 
 import java.util.List;
 import model.Person;
 
-public interface PersonDAO {
-	
+public interface PersonDAO //Name of the interface
+{	
 	public void addPerson(Person pRef);
 	public void updatePerson(Person pRef);
-	//public List<Person> listPersons();
-	
-	/*
-	public void getPersonById(int id);
-	public void removePerson(int id);
-	*/
-
-}
+	public List<Person> listPersons(Person pRef);
+	public void getPersonById(Person pRef);
+	public void removePerson(Person pRef);
+} //end PersonDAO interface

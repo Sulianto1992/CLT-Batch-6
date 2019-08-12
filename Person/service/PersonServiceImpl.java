@@ -10,11 +10,11 @@ public class PersonServiceImpl implements PersonService {
      PersonDAO refPersonDAO;
 	
 	@Override
-	public void addPersonDetails(Person ref) { // call or invoke
+	public void addPersonDetails(Person ref) 
+	{ // call or invoke
 	
 		refPersonDAO = new PersonDAOImpl();
-		refPersonDAO.addPerson(ref);
-		
+		refPersonDAO.addPerson(ref);	
 	}
 	
 	@Override
@@ -25,6 +25,25 @@ public class PersonServiceImpl implements PersonService {
 		
 	}
 	
+	@Override
+	public void retrievePersonList(Person ref) 
+	{
+		refPersonDAO = new PersonDAOImpl();
+		refPersonDAO.listPersons(ref);
+	}
 	
-
-}
+	@Override
+	public void getPersonById(Person ref) 
+	{
+		refPersonDAO = new PersonDAOImpl();
+		refPersonDAO.getPersonById(ref);
+	}
+	
+	@Override
+	public void removePerson(Person ref) 
+	{
+		refPersonDAO = new PersonDAOImpl();
+		refPersonDAO.removePerson(ref);
+	}
+	
+} //end PersonServiceImpl
