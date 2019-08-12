@@ -1,3 +1,9 @@
+/application/
+/controller/
+/dao/
+/day01/
+/day02/
+/day03/
 /day04/
 /day05/
 /day06/
@@ -8,8 +14,9 @@
 /day11/
 /factory/
 /file/
+/jdbc/
 /packA/
 /packB/
+/pojo/
 /serialization/
-/jdbc/
-/model/
+/service/
