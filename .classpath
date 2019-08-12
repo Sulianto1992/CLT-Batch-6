@@ -10,5 +10,6 @@
 	<classpathentry kind="src" path="CLT-Batch6/CLT-Batch6/ATM"/>
 	<classpathentry kind="src" path="CLT-Batch6/CLT-Batch6/ATMTest"/>
 	<classpathentry kind="src" path="CLT-Batch6/CLT-Batch6/src"/>
+	<classpathentry kind="src" path="Person"/>
 	<classpathentry kind="output" path="CLT-Batch-6/CLT-Batch-6/CLT-Batch6/CLT-Batch6/bin"/>
 </classpath>
