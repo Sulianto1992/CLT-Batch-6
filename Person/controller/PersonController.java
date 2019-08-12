@@ -13,19 +13,17 @@ public class PersonController {
 	Person refPerson; // Person is a POJO
 	Scanner sc = new Scanner(System.in);
 	int choice;
-	private void sysout() {
-		// TODO Auto-generated method stub
-
-	}
 	
 	public void personDetailsController()
 	{
 		mainPage();
+		/*
 		personInput();
 		updatePersonDetails();
 		retrievePersonList();
 		getPersonDetails();
 		removePersonDetails();
+		*/
 	}//end personDetailsController method
 
 	void mainPage()
@@ -33,7 +31,6 @@ public class PersonController {
 
 		do
 		{
-			
 		
 			//Prompt user for input
 			System.out.println("Please choose one of the following options (1 to 5): \n");
@@ -46,35 +43,20 @@ public class PersonController {
 	        
 	        choice = sc.nextInt();
 	
-	        try 
-	        {
-	        	//Prompt the user for the correct value
-	            while (choice < 1 || choice > 5)
-	            {
-	            	System.out.println("Incorrect value. Please input the correct value. \n");
-	        		System.out.println("Please choose one of the following options (1 to 5): \n");
-	        		System.out.println("1. Add a person to the list");
-	        		System.out.println("2. Update details of a person in the list");
-	        		System.out.println("3. Display all details from the list");
-	                System.out.println("4. Retrieve a person details using his or her person ID");
-	                System.out.println("5. Remove a person details from the list");
-	                
-	                choice = sc.nextInt();
-	            	
-	            } //end while
-	        }
-	        catch (InputMismatchException e)
-	        {
-	        	System.out.println("Incorrect value. Please input the correct value. \n");
-	    		System.out.println("Please choose one of the following options (1 to 5): \n");
-	    		System.out.println("1. Add a person to the list");
-	    		System.out.println("2. Update details of a person in the list");
-	    		System.out.println("3. Display all details from the list");
-	            System.out.println("4. Retrieve a person details using his or her person ID");
-	            System.out.println("5. Remove a person details from the list");
-	            
-	            choice = sc.nextInt();
-	        } //end try catch
+        	//Prompt the user for the correct value
+            while (choice < 1 || choice > 5)
+            {
+            	System.out.println("Incorrect value. Please input the correct value. \n");
+        		System.out.println("Please choose one of the following options (1 to 5): \n");
+        		System.out.println("1. Add a person to the list");
+        		System.out.println("2. Update details of a person in the list");
+        		System.out.println("3. Display all details from the list");
+                System.out.println("4. Retrieve a person details using his or her person ID");
+                
+                choice = sc.nextInt();
+            	
+            } //end while
+	       
 	        
 	        switch (choice)
 	        {
@@ -88,11 +70,11 @@ public class PersonController {
 	        	        break;
 	        	case 5: removePersonDetails();
 	        	        break;
-	        	case 6: System.out.println("Thank you for using our system!");
-	                    break;
 	        } //end switch
 
 		} while (choice != 6);
+		
+	 System.out.println("Thank you for using our system!");
 
 	} //end mainPage
 

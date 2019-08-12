@@ -20,7 +20,6 @@ public class PersonDAOImpl implements PersonDAO {
 		
 		try 
 		{
-			
 			conn = DBConnection.prepareConnection();
 		} 
 		catch (ClassNotFoundException | SQLException e) 
