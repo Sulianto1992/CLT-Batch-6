@@ -1,6 +1,5 @@
 package controller; //Name of the package
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 import model.Person;
 import service.PersonService;
