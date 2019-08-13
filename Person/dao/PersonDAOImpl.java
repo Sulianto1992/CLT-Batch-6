@@ -85,7 +85,6 @@ public class PersonDAOImpl implements PersonDAO //Name of the class
 			stmt = conn.prepareStatement(sql);
 			
 		    stmt.setInt(3, ref.getPersonID());
-		    //stmt.setString(2, ref.getPersonName());
 		    stmt.setString(1, ref.getPersonPassword());
 		    stmt.setString(2, ref.getDateOfBirth());
 		    
@@ -130,15 +129,14 @@ public class PersonDAOImpl implements PersonDAO //Name of the class
 			stmt = conn.prepareStatement("SELECT * FROM employees");
 			ResultSet rs = stmt.executeQuery();
 			System.out.println();
-			System.out.println("Person ID\t" + "Name\t" + "Password\t" + "Date of Birth\n");
+			System.out.println("Person ID\t" + "Name\t\t" + "Password\t" + "Date of Birth\n");
 			
-			if (rs.next())
+			if(rs.next()) 
 			{
-				while (rs.next() == true)
+				do 
 				{
-					System.out.println(rs.getInt(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + 
-					"\t" + rs.getString(4));
-				} //end while
+					System.out.println(rs.getInt(1)+"\t\t"+rs.getString(2)+"\t\t"+rs.getString(3)+"\t\t"+rs.getString(4)+"\n"); 
+				}while(rs.next()); //end do while
 			} //end if 
 		}
 		catch (SQLException e)
@@ -173,7 +171,7 @@ public class PersonDAOImpl implements PersonDAO //Name of the class
 	}//end listPersons
 	
 	//Function to retrieve a person particular's details
-	public void getPersonById(Person ref)
+	public void getPersonDetails(Person ref)
 	{
 		getConnection();
 		
@@ -183,18 +181,19 @@ public class PersonDAOImpl implements PersonDAO //Name of the class
 			stmt.setInt(1, ref.getPersonID());
 			
 			ResultSet rs = stmt.executeQuery();
-			System.out.println();
 			
-			System.out.println("Person ID\t" + "Name\t" + "Password\t" + "Date of Birth\n");
+			System.out.println("Person ID\t" + "Name\t\t" + "Password\t" + "Date of Birth\n");
+			
 			
 			if (rs.next())
 			{
-				while (rs.next() == true)
+				do 
 				{
-					System.out.println(rs.getInt(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + 
-					"\t" + rs.getString(4));
-				} //end while
+					System.out.println(rs.getInt(1)+"\t\t"+rs.getString(2)+"\t\t"+rs.getString(3)+"\t\t"+rs.getString(4)+"\n\n"); 
+				} while(rs.next());
+				
 			} //end if 
+			
 		}
 		catch (SQLException e)
 		{
@@ -234,7 +233,7 @@ public class PersonDAOImpl implements PersonDAO //Name of the class
 		stmt.setInt(1, ref.getPersonID());
 		
 		stmt.executeUpdate();
-		System.out.println("Person ID:" + ref.getPersonID() + "is removed from the list.");
+		System.out.println("Person ID: " + ref.getPersonID() + " is removed from the list.");
 		
 		}
 		catch (SQLException e)

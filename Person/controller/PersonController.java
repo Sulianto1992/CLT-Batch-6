@@ -1,5 +1,6 @@
 package controller; //Name of the package
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import model.Person;
 import service.PersonService;
@@ -13,6 +14,7 @@ public class PersonController //Name of the class
 	Person refPerson; // Person is a POJO
 	Scanner sc = new Scanner(System.in);
 	int choice;
+	String reply = "Yes";
 	
 	//Display main page 
 	public void personDetailsController()
@@ -23,9 +25,8 @@ public class PersonController //Name of the class
 	//Functions of the application
 	void mainPage()
 	{
-		do
+		while (reply.equalsIgnoreCase("Yes"))
 		{
-		
 			//Prompt user for input
 			System.out.println("Please choose one of the following options (1 to 5): \n");
 			System.out.println("1. Add a person to the list");
@@ -33,10 +34,11 @@ public class PersonController //Name of the class
 			System.out.println("3. Display all details from the list");
 	        System.out.println("4. Retrieve a person details using his or her person ID");
 	        System.out.println("5. Remove a person details from the list");
-	        System.out.println("6. Exit the program");
 	        
+	        System.out.print("\nEnter your choice: ");
 	        choice = sc.nextInt();
-	
+	         
+	        
         	//Prompt the user for the correct value
             while (choice < 1 || choice > 5)
             {
@@ -50,6 +52,7 @@ public class PersonController //Name of the class
                 choice = sc.nextInt();
             	
             } //end while
+            
 	       
 	        //Execute a particular statement according to his or her choice
 	        switch (choice)
@@ -65,11 +68,17 @@ public class PersonController //Name of the class
 	        	case 5: removePersonDetails();
 	        	        break;
 	        } //end switch
-
-		} while (choice != 6); //Terminate the program if the user choose 6
+	        
+	        //Verify whether the user input is correct or not
+        	 System.out.print("Do you want to continue? (Yes/No): ");
+ 	         reply = sc.next();
+ 	         System.out.println();
+ 	         
+		} //end while
 		
 	 //Display valid message
 	 System.out.println("Thank you for using our system!");
+	 
 
 	} //end mainPage
 
@@ -77,19 +86,19 @@ public class PersonController //Name of the class
 	void personInput() 
 	{
     	//Prompt user for his or her identification number
-    	System.out.println("Please enter the user identification number: ");
+    	System.out.print("\nPlease enter the user identification number: ");
     	int personID = sc.nextInt();
     	
     	//Prompt user for his or her name
-    	System.out.println("Please enter the name: ");
+    	System.out.print("Please enter the name: ");
     	String personName = sc.next();
     	
     	//Prompt user for his or her password
-    	System.out.println("Please enter the password: ");
+    	System.out.print("Please enter the password: ");
     	String personPassword = sc.next();
     	
     	//Prompt user for his or her date of birth
-    	System.out.println("Please enter the date of birth: ");
+    	System.out.print("Please enter the date of birth: ");
     	String personDateOfBirth = sc.next();
     	
     	//Create object of Person class
@@ -157,8 +166,10 @@ public class PersonController //Name of the class
 		//Create object of PersonServiceImpl class and refer to it interface
 		refPersonService = new PersonServiceImpl();
 		
-		//Prompt user input
+		//Prompt for user input
+		System.out.print("Enter the person ID: ");
 		int personID = sc.nextInt();
+		System.out.println();
 		
 		//Set the value of PersonID
 		refPerson.setPersonID(personID);
@@ -175,8 +186,10 @@ public class PersonController //Name of the class
 		//Create object of PersonServiceImpl class and refer to it interface
 		refPersonService = new PersonServiceImpl();
 		
-		//Prompt user input
+		//Prompt for user input
+		System.out.print("Enter the person ID: ");
 		int personID = sc.nextInt();
+		System.out.println();
 		
 		//Set the value of PersonID
 		refPerson.setPersonID(personID);

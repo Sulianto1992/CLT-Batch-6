@@ -36,7 +36,7 @@ public class PersonServiceImpl implements PersonService {
 	public void getPersonById(Person ref) 
 	{
 		refPersonDAO = new PersonDAOImpl();
-		refPersonDAO.getPersonById(ref);
+		refPersonDAO.getPersonDetails(ref);
 	}
 	
 	@Override
